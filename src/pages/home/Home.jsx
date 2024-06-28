@@ -2,30 +2,22 @@ import React, { useEffect, useState } from 'react'
 import Characters from '../../components/characters/Characters'
 import './Home.css'
 import Loader from '../../components/loader/Loader'
+import { getCharacters } from '../../services/api'
 
 const Home = () => {
   const [chars, setChars] = useState([])
   const [loading, setLoading] = useState(false)
-  const uri = 'https://dragonball-api.com/api/characters?page=1&limit=50'
 
   useEffect(() => {
-    const getCharacters = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch(uri)
-        const data = await response.json()
-        setTimeout(() => {
-          setLoading(false)
-        }, 1000)
-        return data.items
-      } catch (error) {
+    if (chars.length) return
+    else {
+      setLoading(true)
+      const limit = 20
+      getCharacters(limit).then((data) => setChars(data))
+      setTimeout(() => {
         setLoading(false)
-        console.error('Failed to fetch characters:', error)
-        return
-      }
+      }, 2000)
     }
-
-    getCharacters().then((data) => setChars(data))
   }, [])
 
   if (loading) return <Loader />
