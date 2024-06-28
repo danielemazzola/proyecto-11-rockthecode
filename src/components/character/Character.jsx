@@ -1,3 +1,4 @@
+import React from 'react'
 import './Character.css'
 
 const Character = ({ char }) => {
@@ -28,7 +29,10 @@ const Character = ({ char }) => {
         </div>
       </div>
       <div className='hero-description'>
-        <p>{char.description}</p>
+        <p>
+          <span>Description:</span>
+          <br></br> {char.description}
+        </p>
       </div>
       <div className='character-images'>
         {char.originPlanet && (
@@ -42,7 +46,10 @@ const Character = ({ char }) => {
               <div className='planet-info'>
                 <h3>{char.originPlanet.name}</h3>
                 <p>{char.originPlanet.description}</p>
-                <p>{char.originPlanet.isDestroyed ? 'Yes' : 'No'}</p>
+                <p>
+                  <span>Destroyed:</span>{' '}
+                  {char.originPlanet.isDestroyed ? 'Yes' : 'No'}
+                </p>
               </div>
             </div>
           </div>
@@ -57,7 +64,7 @@ const Character = ({ char }) => {
               alt={`${char.name} transformation ${el.name}`}
             />
             <div className='detail'>
-              <p>Ki:</p> {el.ki}
+              <p>Ki: {el.ki}</p>
             </div>
           </div>
         ))}

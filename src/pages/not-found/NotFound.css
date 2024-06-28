@@ -1,0 +1,16 @@
+.not-found {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.not-found > p {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}

@@ -1,31 +1,30 @@
 .character-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
+  margin: 20px;
 }
 
 .hero-info {
   width: 100%;
-  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: radial-gradient(
-    circle,
-    rgba(255, 8, 0, 1) 0%,
-    rgba(51, 51, 51, 1) 100%
-  );
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(46, 46, 46);
 }
 
 .hero-image {
-  width: 250px;
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-image img {
   width: 100%;
-  transition: all 0.3s;
-  display: flex;
+  border-radius: 10px;
+  transition: transform 0.3s;
   object-fit: cover;
 }
 
@@ -33,19 +32,23 @@
   transform: scale(1.1);
 }
 
-.hero-details {
-  color: white;
-  text-align: star;
-}
-
 .hero-details h1 {
   font-size: 38px;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: rgba(255, 8, 0, 1);
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.detail {
+  padding: 10px;
 }
 
 .hero-description {
-  margin: 20px 10px;
+  margin: 50px 10px;
+  text-align: center;
+  text-align: justify;
 }
 
 .character-images {
@@ -55,38 +58,35 @@
 
 .origin-planet {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
 .planet-image-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .planet-image {
   width: 100%;
-  display: flex;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  border-radius: 10px 10px 0 0;
 }
 
 .planet-info {
   background-color: black;
-  padding: 20px 10px;
-}
-
-.planet-info h3 {
-  margin: 10px 0;
+  padding: 30px 20px;
+  border-radius: 0 0 10px 10px;
   color: white;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .planet-info p {
   font-size: 14px;
-  color: white;
-}
-
-.planet-info strong {
-  font-weight: bold;
 }
 
 .character-transformations {
@@ -94,47 +94,64 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin: 20px 0;
 }
 
 .transformation {
   text-align: center;
-  width: 300px;
+  width: 250px;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+  padding: 0 20px;
+}
+
+.transformation:hover {
+  transform: translateY(-5px);
 }
 
 .transformation h2 {
   font-size: 1.5em;
   width: 100%;
-  padding: 10px 3px;
-  border: 1px solid black;
-  border-radius: 10px 10px 0 0;
+  background: radial-gradient(circle, rgb(206, 7, 0) 0%, rgb(0, 0, 0) 100%);
+  color: white;
+  padding: 20px;
 }
 
 .transformation img {
   width: 100%;
   height: 150px;
-  display: flex;
   object-fit: contain;
-  padding: 10px 3px;
-  transition: all 0.3s;
+  padding: 10px;
+  transition: transform 0.3s;
 }
+
 .transformation img:hover {
   transform: scale(1.3);
 }
-.transformation > .detail {
+
+.transformation .detail {
   width: 100%;
-  border-top: 1px solid white;
-  padding: 10px 3px;
-  border: 1px solid black;
-  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  border-top: 1px solid #f5f5f5;
 }
-@media (max-width: 499px) {
+
+@media (max-width: 629px) {
   .hero-info {
     flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .hero-details {
+    padding-left: 0;
+    text-align: center;
   }
 }

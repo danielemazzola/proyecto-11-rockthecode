@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: var(--background-color);
@@ -29,4 +30,20 @@ a {
 }
 ul {
   list-style: none;
+}
+
+@keyframes scaleAnimation {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
 }

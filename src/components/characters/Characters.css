@@ -49,6 +49,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s;
+  animation: scaleAnimation 3s infinite;
 }
 .button > a:hover {
   background: radial-gradient(
