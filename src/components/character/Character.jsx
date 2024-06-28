@@ -11,24 +11,24 @@ const Character = ({ char }) => {
         <div className='hero-details'>
           <h1>{char.name}</h1>
           <div className='detail'>
-            <strong>Race: {char.race}</strong>
+            <p>Race: {char.race}</p>
           </div>
           <div className='detail'>
-            <strong>Gender: {char.gender}</strong>
+            <p>Gender: {char.gender}</p>
           </div>
           <div className='detail'>
-            <strong>Affiliation: {char.affiliation}</strong>
+            <p>Affiliation: {char.affiliation}</p>
           </div>
           <div className='detail'>
-            <strong>Ki: {char.ki}</strong>
+            <p>Ki: {char.ki}</p>
           </div>
           <div className='detail'>
-            <strong>Max Ki: {char.maxKi}</strong>
+            <p>Max Ki: {char.maxKi}</p>
           </div>
         </div>
       </div>
       <div className='hero-description'>
-        <strong>{char.description}</strong>
+        <p>{char.description}</p>
       </div>
       <div className='character-images'>
         {char.originPlanet && (
@@ -40,17 +40,9 @@ const Character = ({ char }) => {
                 alt={`${char.name}'s origin planet`}
               />
               <div className='planet-info'>
-                <p>
-                  <strong>Planet Name: {char.originPlanet.name}</strong>
-                </p>
-                <p>
-                  <strong>Planet Description:</strong>{' '}
-                  {char.originPlanet.description}
-                </p>
-                <p>
-                  <strong>Is Destroyed:</strong>{' '}
-                  {char.originPlanet.isDestroyed ? 'Yes' : 'No'}
-                </p>
+                <h3>{char.originPlanet.name}</h3>
+                <p>{char.originPlanet.description}</p>
+                <p>{char.originPlanet.isDestroyed ? 'Yes' : 'No'}</p>
               </div>
             </div>
           </div>
@@ -65,7 +57,7 @@ const Character = ({ char }) => {
               alt={`${char.name} transformation ${el.name}`}
             />
             <div className='detail'>
-              <strong>Ki:</strong> {el.ki}
+              <p>Ki:</p> {el.ki}
             </div>
           </div>
         ))}
