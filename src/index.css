@@ -1,11 +1,3 @@
-:root {
-  --primary-color: #f50000; /* Goku's Gi */
-  --secondary-color: #005cb2; /* Vegeta's Armor */
-  --accent-color: #ffd700; /* Super Saiyan Hair */
-  --background-color: #f2f2f2;
-  --text-color: #333;
-}
-
 * {
   margin: 0;
   padding: 0;

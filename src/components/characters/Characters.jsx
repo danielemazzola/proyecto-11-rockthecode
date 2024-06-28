@@ -3,7 +3,6 @@ import './Characters.css'
 import { Link } from 'react-router-dom'
 
 const Characters = ({ char }) => {
-  console.log(char)
   return (
     <div className='card-characters'>
       <div className='contain-image'>

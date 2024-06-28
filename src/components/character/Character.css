@@ -1,0 +1,149 @@
+.character-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.hero-info {
+  background-color: aqua;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: radial-gradient(
+    circle,
+    rgba(255, 8, 0, 1) 0%,
+    rgba(51, 51, 51, 1) 100%
+  );
+  padding: 20px 0;
+}
+
+.hero-image {
+  width: 250px;
+}
+
+.hero-image img {
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.hero-image img:hover {
+  transform: scale(1.1);
+}
+
+.hero-details {
+  color: white;
+}
+
+.hero-details h1 {
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+strong {
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.hero-description {
+  margin: 20px 10px;
+}
+
+.character-images {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.origin-planet {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.planet-image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.planet-image {
+  width: 100%;
+  display: flex;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.planet-image:hover {
+  transform: scale(1.1);
+}
+
+.planet-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.planet-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.planet-info strong {
+  font-weight: bold;
+}
+
+.character-transformations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 40px;
+}
+
+.transformation {
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.transformation h2 {
+  font-size: 1.5em;
+  width: 100%;
+  padding: 10px 3px;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+}
+
+.transformation img {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  object-fit: contain;
+  padding: 10px 3px;
+  transition: all 0.3s;
+}
+.transformation img:hover {
+  transform: scale(1.3);
+}
+.transformation > .detail {
+  width: 100%;
+  border-top: 1px solid white;
+  padding: 10px 3px;
+  border: 1px solid black;
+  border-radius: 0 0 10px 10px;
+}
+@media (max-width: 499px) {
+  .hero-info {
+    flex-direction: column;
+  }
+}
