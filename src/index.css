@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #f50000; /* Goku's Gi */
+  --secondary-color: #005cb2; /* Vegeta's Armor */
+  --accent-color: #ffd700; /* Super Saiyan Hair */
+  --background-color: #f2f2f2;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--background-color);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2 {
+  font-size: 24px;
+}
+h3,
+h4,
+h5,
+h6 {
+  font-size: 20px;
+}
+p {
+  font-size: 18px;
+}
+span {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}

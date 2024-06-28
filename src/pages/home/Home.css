@@ -1,0 +1,16 @@
+.contain-home {
+  padding-top: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  border-top: 1px solid black;
+}
+.contain-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}

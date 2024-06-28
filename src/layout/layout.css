@@ -1,0 +1,30 @@
+header {
+  position: relative;
+}
+.contain-logo {
+  display: flex;
+}
+.logo {
+  width: 40%;
+  display: flex;
+  flex: 1;
+  object-fit: cover;
+}
+.banner {
+  width: 40%;
+  display: flex;
+  flex: 1;
+  object-fit: cover;
+}
+@media (max-width: 499px) {
+  .contain-logo {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    width: 100%;
+  }
+  .banner {
+    width: 100%;
+  }
+}
