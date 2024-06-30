@@ -10,14 +10,13 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: white;
   border-radius: 10px;
   color: rgb(46, 46, 46);
 }
 
 .hero-image {
-  flex: 0 0 250px;
   display: flex;
+  width: 20%;
   justify-content: center;
 }
 
@@ -31,18 +30,19 @@
 .hero-image img:hover {
   transform: scale(1.1);
 }
-
-.hero-details h1 {
-  font-size: 38px;
-  font-weight: bold;
-  color: rgba(255, 8, 0, 1);
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px 10px 0 0;
+.hero-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.detail {
-  padding: 10px;
+.hero-details h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hero-details li {
+  font-weight: 600;
 }
 
 .hero-description {
@@ -106,13 +106,10 @@
   height: 350px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: white;
+  justify-content: space-around;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   transition: transform 0.3s;
-  padding: 0 20px;
 }
 
 .transformation:hover {
@@ -125,11 +122,12 @@
   background: radial-gradient(circle, rgb(206, 7, 0) 0%, rgb(0, 0, 0) 100%);
   color: white;
   padding: 20px;
+  border-radius: 10px 10px 0 0;
 }
 
 .transformation img {
   width: 100%;
-  height: 150px;
+  height: 190px;
   object-fit: contain;
   padding: 10px;
   transition: transform 0.3s;
@@ -153,7 +151,15 @@
   }
 
   .hero-details {
-    padding-left: 0;
-    text-align: center;
+    margin: 20px 0;
+    text-align: start;
+    width: 100%;
+    background-color: rgb(206, 206, 206);
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .hero-image img {
+    width: 250px;
   }
 }

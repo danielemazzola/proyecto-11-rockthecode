@@ -8,24 +8,16 @@ const Character = ({ char }) => {
         <div className='hero-image'>
           <img src={char.image} alt={char.name} />
         </div>
-        <div className='hero-details'>
-          <h1>{char.name}</h1>
-          <div className='detail'>
-            <p>Race: {char.race}</p>
-          </div>
-          <div className='detail'>
-            <p>Gender: {char.gender}</p>
-          </div>
-          <div className='detail'>
-            <p>Affiliation: {char.affiliation}</p>
-          </div>
-          <div className='detail'>
-            <p>Ki: {char.ki}</p>
-          </div>
-          <div className='detail'>
-            <p>Max Ki: {char.maxKi}</p>
-          </div>
-        </div>
+        <ul className='hero-details'>
+          <li>
+            <h1>{char.name}</h1>
+          </li>
+          <li>Race: {char.race}</li>
+          <li>Gender: {char.gender}</li>
+          <li>Affiliation: {char.affiliation}</li>
+          <li>Ki: {char.ki}</li>
+          <li>Max Ki: {char.maxKi}</li>
+        </ul>
       </div>
       <div className='hero-description'>
         <p>
