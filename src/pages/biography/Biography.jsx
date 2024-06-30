@@ -16,7 +16,7 @@ const Biography = () => {
     setTimeout(() => {
       setLoading(false)
     }, 2000)
-  }, [])
+  }, [setChar])
 
   if (loading) return <Loader />
   else

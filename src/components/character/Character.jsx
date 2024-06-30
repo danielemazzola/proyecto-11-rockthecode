@@ -2,7 +2,6 @@ import React from 'react'
 import './Character.css'
 
 const Character = ({ char }) => {
-  console.log(char)
   return (
     <div className='character-container'>
       <div className='hero-info'>

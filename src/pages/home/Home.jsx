@@ -12,13 +12,13 @@ const Home = () => {
     if (chars.length) return
     else {
       setLoading(true)
-      const limit = 20
+      const limit = 150
       getCharacters(limit).then((data) => setChars(data))
       setTimeout(() => {
         setLoading(false)
       }, 2000)
     }
-  }, [])
+  }, [setChars])
 
   if (loading) return <Loader />
   else
