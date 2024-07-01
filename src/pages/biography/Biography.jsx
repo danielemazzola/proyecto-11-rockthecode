@@ -22,7 +22,7 @@ const Biography = () => {
         return dispatch({ type: 'FALSE' })
       }
     }
-    if (id !== state.char.id.toString()) {
+    if (id !== String(state.char.id)) {
       fetchCharacter()
     }
   }, [id])
