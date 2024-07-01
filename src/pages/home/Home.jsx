@@ -1,31 +1,17 @@
-import React, { useEffect, useState } from 'react'
 import Characters from '../../components/characters/Characters'
-import './Home.css'
 import Loader from '../../components/loader/Loader'
-import { getCharacters } from '../../services/api'
+import { useApp } from '../../hook/useApp'
+import './Home.css'
 
 const Home = () => {
-  const [chars, setChars] = useState([])
-  const [loading, setLoading] = useState(false)
+  const { state } = useApp()
 
-  useEffect(() => {
-    if (chars.length) return
-    else {
-      setLoading(true)
-      const limit = 150
-      getCharacters(limit).then((data) => setChars(data))
-      setTimeout(() => {
-        setLoading(false)
-      }, 2000)
-    }
-  }, [setChars])
-
-  if (loading) return <Loader />
+  if (state.loading) return <Loader />
   else
     return (
       <div className='contain-home'>
         <div className='contain-cards'>
-          {chars.map((char, index) => (
+          {state.chars.map((char, index) => (
             <div key={index}>
               <Characters char={char} />
             </div>

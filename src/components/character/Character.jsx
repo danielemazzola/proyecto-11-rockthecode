@@ -1,7 +1,10 @@
 import React from 'react'
 import './Character.css'
+import { useApp } from '../../hook/useApp'
 
-const Character = ({ char }) => {
+const Character = () => {
+  const { state } = useApp()
+  const char = state.char
   return (
     <div className='character-container'>
       <div className='hero-info'>
