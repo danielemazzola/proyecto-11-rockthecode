@@ -8,14 +8,13 @@ import { useApp } from '../../hook/useApp'
 const Biography = () => {
   const path = useLocation()
   const { state, dispatch } = useApp()
-  let id = path.pathname.split('/')[2]
+  const id = path.pathname.split('/')[2]
 
   useEffect(() => {
     const fetchCharacter = async () => {
       dispatch({ type: 'TRUE' })
       try {
         const character = await getCharacter(id)
-        console.log(state.char)
         return dispatch({ type: 'SET_CHAR', payload: character })
       } catch (error) {
         console.error('Error fetching character:', error)
@@ -23,8 +22,9 @@ const Biography = () => {
         return dispatch({ type: 'FALSE' })
       }
     }
-
-    fetchCharacter()
+    if (id !== state.char.id.toString()) {
+      fetchCharacter()
+    }
   }, [id])
 
   if (state.loading) return <Loader />

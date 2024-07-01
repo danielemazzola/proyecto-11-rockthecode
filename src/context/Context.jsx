@@ -13,11 +13,11 @@ export const CharsProvider = ({ children }) => {
       const limit = 150
       try {
         const data = await getCharacters(limit)
-        dispatch({ type: 'SET_CHARS', payload: data })
+        return dispatch({ type: 'SET_CHARS', payload: data })
       } catch (error) {
-        console.error('Error fetching characters:', error)
+        return console.error('Error fetching characters:', error)
       } finally {
-        dispatch({ type: 'FALSE' })
+        return dispatch({ type: 'FALSE' })
       }
     }
     if (state.chars.length === 0) {
