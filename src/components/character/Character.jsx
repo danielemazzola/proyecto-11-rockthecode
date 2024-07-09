@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import './Character.css'
 import { CharsContext } from '../../context/CharsContext'
+import CharacterList from './CharacterList'
+import CharacterPlanet from './CharacterPlanet'
+import CharacterTransforms from './CharacterTransforms'
 
 const Character = () => {
   const { state } = useContext(CharsContext)
@@ -12,14 +15,7 @@ const Character = () => {
           <img src={char.image} alt={char.name} />
         </div>
         <ul className='hero-details'>
-          <li>
-            <h1>{char.name}</h1>
-          </li>
-          <li>Race: {char.race}</li>
-          <li>Gender: {char.gender}</li>
-          <li>Affiliation: {char.affiliation}</li>
-          <li>Ki: {char.ki}</li>
-          <li>Max Ki: {char.maxKi}</li>
+          <CharacterList char={char} />
         </ul>
       </div>
       <div className='hero-description'>
@@ -29,38 +25,11 @@ const Character = () => {
         </p>
       </div>
       <div className='character-images'>
-        {char.originPlanet && (
-          <div className='origin-planet'>
-            <div className='planet-image-container'>
-              <img
-                className='planet-image'
-                src={char.originPlanet.image}
-                alt={`${char.name}'s origin planet`}
-              />
-              <div className='planet-info'>
-                <h3>{char.originPlanet.name}</h3>
-                <p>{char.originPlanet.description}</p>
-                <p>
-                  <span>Destroyed:</span>{' '}
-                  {char.originPlanet.isDestroyed ? 'Yes' : 'No'}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+        {char.originPlanet && <CharacterPlanet char={char} />}
       </div>
       <div className='character-transformations'>
         {char.transformations?.map((el, index) => (
-          <div key={index} className='transformation'>
-            <h2>{el.name}</h2>
-            <img
-              src={el.image}
-              alt={`${char.name} transformation ${el.name}`}
-            />
-            <div className='detail'>
-              <p>Ki: {el.ki}</p>
-            </div>
-          </div>
+          <CharacterTransforms key={index} char={el} />
         ))}
       </div>
     </div>

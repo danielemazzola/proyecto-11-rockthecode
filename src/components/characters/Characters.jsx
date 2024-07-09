@@ -1,5 +1,6 @@
 import './Characters.css'
 import { Link } from 'react-router-dom'
+import CharactersList from './CharactersList'
 
 const Characters = ({ char }) => {
   return (
@@ -12,18 +13,7 @@ const Characters = ({ char }) => {
       </div>
       <div className='character-info-container'>
         <ul className='character-info'>
-          <li>
-            <strong>Gender:</strong> {char.gender}
-          </li>
-          <li>
-            <strong>Race:</strong> {char.race}
-          </li>
-          <li>
-            <strong>Ki:</strong> {char.ki}
-          </li>
-          <li>
-            <strong>Max Ki:</strong> {char.maxKi}
-          </li>
+          <CharactersList char={char} />
         </ul>
         <Link to={`/biography/${char.id}`}>
           <img src={char.image} />
