@@ -6,24 +6,28 @@ export const CharsContext = createContext()
 
 export const CharsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(stateChars, initCharsState)
+  const { chars } = state
 
   useEffect(() => {
     const fetchCharacters = async () => {
       dispatch({ type: 'LOADING_TRUE' })
-      const limit = 150
+      const limit = 150 //RETURN CHARACTERES
       try {
         const data = await getCharacters(limit)
-        return dispatch({ type: 'SET_CHARS', payload: data })
+        return dispatch({ type: 'SET_CHARS', payload: data.items })
       } catch (error) {
         return console.error('Error fetching characters:', error)
       } finally {
-        return dispatch({ type: 'LOADING_FALSE' })
+        setTimeout(() => {
+          dispatch({ type: 'LOADING_FALSE' })
+        }, 2000)
+        return
       }
     }
-    if (state.chars.length === 0) {
+    if (chars.length === 0) {
       fetchCharacters()
     }
-  }, [state.chars.length])
+  }, [chars.length])
 
   return (
     <CharsContext.Provider value={{ state, dispatch }}>
