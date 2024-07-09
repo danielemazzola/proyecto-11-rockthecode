@@ -1,24 +1,31 @@
+import { useContext } from 'react'
 import Characters from '../../components/characters/Characters'
 import Loader from '../../components/loader/Loader'
-import { useApp } from '../../hook/useApp'
+import { CharsContext } from '../../context/CharsContext'
 import './Home.css'
 
 const Home = () => {
-  const { state } = useApp()
+  const {
+    state: { loading, chars }
+  } = useContext(CharsContext)
 
-  if (state.loading) return <Loader />
-  else
-    return (
-      <div className='contain-home'>
-        <div className='contain-cards'>
-          {state.chars.map((char, index) => (
-            <div key={index}>
-              <Characters char={char} />
-            </div>
-          ))}
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className='contain-home'>
+          <div className='contain-cards'>
+            {chars.map((char, index) => (
+              <div key={index}>
+                <Characters char={char} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </>
+  )
 }
 
 export default Home

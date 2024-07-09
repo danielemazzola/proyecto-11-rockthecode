@@ -9,7 +9,7 @@ export const CharsProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchCharacters = async () => {
-      dispatch({ type: 'TRUE' })
+      dispatch({ type: 'LOADING_TRUE' })
       const limit = 150
       try {
         const data = await getCharacters(limit)
@@ -17,7 +17,7 @@ export const CharsProvider = ({ children }) => {
       } catch (error) {
         return console.error('Error fetching characters:', error)
       } finally {
-        return dispatch({ type: 'FALSE' })
+        return dispatch({ type: 'LOADING_FALSE' })
       }
     }
     if (state.chars.length === 0) {

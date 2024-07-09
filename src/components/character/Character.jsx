@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Character.css'
-import { useApp } from '../../hook/useApp'
+import { CharsContext } from '../../context/CharsContext'
 
 const Character = () => {
-  const { state } = useApp()
+  const { state } = useContext(CharsContext)
   const char = state.char
   return (
     <div className='character-container'>

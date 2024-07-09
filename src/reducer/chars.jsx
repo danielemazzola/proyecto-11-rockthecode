@@ -2,9 +2,9 @@ export const initCharsState = { loading: false, chars: [], char: {} }
 
 export const stateChars = (state, action) => {
   switch (action.type) {
-    case 'TRUE':
+    case 'LOADING_TRUE':
       return { ...state, loading: true }
-    case 'FALSE':
+    case 'LOADING_FALSE':
       return { ...state, loading: false }
     case 'SET_CHARS':
       return { ...state, chars: action.payload }
