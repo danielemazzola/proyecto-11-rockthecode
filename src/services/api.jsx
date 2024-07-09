@@ -1,5 +1,5 @@
 export const getCharacters = async (limit) => {
-  const uri = `${process.env.REACT_APP_URL_API}?page=1&limit=${limit}`
+  const uri = `${import.meta.env.VITE_API_URL}?page=1&limit=${limit}`
   try {
     const response = await fetch(uri)
     const data = await response.json()
@@ -11,7 +11,7 @@ export const getCharacters = async (limit) => {
 }
 
 export const getCharacter = async (id, dispatch) => {
-  const uri = `${process.env.REACT_APP_URL_API}/${id}`
+  const uri = `${import.meta.env.VITE_API_URL}/${id}`
   try {
     const response = await fetch(uri)
     const data = await response.json()
