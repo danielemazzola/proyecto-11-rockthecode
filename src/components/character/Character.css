@@ -116,7 +116,11 @@
 .transformation h2 {
   font-size: 1.5em;
   width: 100%;
-  background: radial-gradient(circle, rgb(206, 7, 0) 0%, rgb(0, 0, 0) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(206, 7, 0, 0.356) 0%,
+    rgba(36, 36, 36, 0.308) 100%
+  );
   padding: 20px;
   border-radius: 10px 10px 0 0;
 }
