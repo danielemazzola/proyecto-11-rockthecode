@@ -1,11 +1,18 @@
 import { Link, Outlet } from 'react-router-dom'
 import './layout.css'
 import Music from '../music/Music'
+import ToggleTheme from '../components/toggleTheme/ToggleTheme'
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Layout = () => {
+  const {
+    state: { theme }
+  } = useContext(ThemeContext)
+
   return (
     <>
-      <header>
+      <header className={`${theme === 'light' ? 'light' : 'dark'}`}>
         <Link to='/'>
           <div className='contain-logo'>
             <img
@@ -21,8 +28,13 @@ const Layout = () => {
           </div>
           <Music />
         </Link>
+        <div className='toggleBtn'>
+          <ToggleTheme />
+        </div>
       </header>
-      <main>{<Outlet />}</main>
+      <main className={`${theme === 'light' ? 'light' : 'dark'}`}>
+        {<Outlet />}
+      </main>
     </>
   )
 }

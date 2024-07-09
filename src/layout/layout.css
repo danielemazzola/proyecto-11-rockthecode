@@ -1,3 +1,11 @@
+.light {
+  background-color: white;
+  color: black !important;
+}
+.dark {
+  background-color: black;
+  color: white !important;
+}
 header {
   position: relative;
 }
@@ -15,6 +23,12 @@ header {
   display: flex;
   flex: 1;
   object-fit: cover;
+}
+.toggleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 499px) {
   .contain-logo {
