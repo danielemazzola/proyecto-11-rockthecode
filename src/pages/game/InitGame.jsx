@@ -15,7 +15,11 @@ const InitGame = () => {
   } = useContext(CharsContext)
 
   const handleSelect = (char) => {
-    dispatch({ type: 'NEW_USER_CHAR', payload: char })
+    if (Object.keys(user).length > 0 && user.name === char.name) {
+      dispatch({ type: 'NEW_USER_CHAR', payload: {} })
+    } else {
+      dispatch({ type: 'NEW_USER_CHAR', payload: char })
+    }
   }
 
   return (
@@ -41,19 +45,17 @@ const InitGame = () => {
               )
           )}
         </div>
-        {Object.keys(user).length > 0 && (
-          <div className='init-btn-battle'>
+        <div className={`init-btn-battle ${user.name ? 'visible' : ''}`}>
+          <div>
+            <p>Has elegido a</p>
+            <img src={user.image} alt={user.name} />
+            <p>{user.name}</p>
+            <p>¿Iniciamos?</p>
             <div>
-              <p>Has elegido a</p>
-              <img src={user.image} />
-              <p>{user.name}</p>
-              <p>¿Iniciamos?</p>
-              <div>
-                <button onClick={handleSelectRandomChar}>A luchar</button>
-              </div>
+              <button onClick={handleSelectRandomChar}>A luchar</button>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
