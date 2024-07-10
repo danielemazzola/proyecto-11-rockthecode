@@ -14,12 +14,35 @@ header {
 .contain-logo {
   display: flex;
 }
-.logo {
+.contain-logo > a {
   width: 40%;
   display: flex;
   flex: 1;
+}
+.contain-logo > a > img {
+  width: 100%;
   object-fit: cover;
 }
+.container-banner-game {
+  position: relative;
+  cursor: pointer;
+}
+.container-banner-game > a > p {
+  position: absolute;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(52, 100, 235, 0.87);
+  bottom: 10px;
+  left: 10px;
+  border-radius: 10px;
+}
+.container-banner-game,
+.container-banner-game > a,
 .banner {
   width: 40%;
   display: flex;
@@ -37,9 +60,11 @@ header {
     display: flex;
     flex-direction: column;
   }
-  .logo {
+  .contain-logo > a {
     width: 100%;
   }
+  .container-banner-game,
+  .container-banner-game > a,
   .banner {
     width: 100%;
   }

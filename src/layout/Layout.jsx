@@ -13,21 +13,26 @@ const Layout = () => {
   return (
     <>
       <header className={`${theme === 'light' ? 'light' : 'dark'}`}>
-        <Link to='/'>
-          <div className='contain-logo'>
+        <div className='contain-logo'>
+          <Link to='/'>
             <img
               className='logo'
               src='../../images/logo.webp'
               alt='Logo DragonBall'
             />
-            <img
-              className='banner'
-              src='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/DBSZ_Middle_-_Steam_Gif_Chara.gif?t=1719379676'
-              alt='Banner Gif DragonBall'
-            />
+          </Link>
+          <div className='container-banner-game'>
+            <Link to='./game'>
+              <img
+                className='banner'
+                src='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1790600/extras/DBSZ_Middle_-_Steam_Gif_Chara.gif?t=1719379676'
+                alt='Banner Gif DragonBall'
+              />
+              <p>GAME</p>
+            </Link>
           </div>
-          <Music />
-        </Link>
+        </div>
+        <Music />
         <div className='toggleBtn'>
           <ToggleTheme />
         </div>

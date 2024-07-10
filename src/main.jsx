@@ -5,12 +5,15 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { CharsProvider } from './context/CharsContext.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
+import { GameProvider } from './context/GameContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <CharsProvider>
       <ThemeProvider>
-        <App />
+        <GameProvider>
+          <App />
+        </GameProvider>
       </ThemeProvider>
     </CharsProvider>
   </BrowserRouter>
