@@ -1,5 +1,4 @@
 export const initStateGame = {
-  loading: false,
   user: {},
   randomChar: {},
   score_user: 10,

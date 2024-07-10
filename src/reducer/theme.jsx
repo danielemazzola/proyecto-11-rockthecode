@@ -1,5 +1,5 @@
 export const initThemeState = {
-  theme: localStorage.getItem('theme') || 'light'
+  theme: sessionStorage.getItem('theme') || 'light'
 }
 
 export const stateTheme = (state, action) => {

@@ -37,15 +37,12 @@ export const GameProvider = ({ children }) => {
     setSelectedChars(randomChars(chars))
   }, [chars])
 
-  const handleSelectRandomChar = () => {}
-
   return (
     <GameContext.Provider
       value={{
         state,
         dispatch,
-        selectedChars,
-        handleSelectRandomChar
+        selectedChars
       }}
     >
       {children}

@@ -3,6 +3,8 @@ import React, { useContext } from 'react'
 import { CharsContext } from '../../context/CharsContext'
 import Characters from '../../components/characters/Characters'
 import { GameContext } from '../../context/GameContext'
+import { Link } from 'react-router-dom'
+import Loader from '../../components/loader/Loader'
 
 const InitGame = () => {
   const {
@@ -10,8 +12,7 @@ const InitGame = () => {
     dispatch
   } = useContext(GameContext)
   const {
-    state: { chars },
-    handleSelectRandomChar
+    state: { chars }
   } = useContext(CharsContext)
 
   const handleSelect = (char) => {
@@ -20,18 +21,33 @@ const InitGame = () => {
     } else {
       dispatch({ type: 'NEW_USER_CHAR', payload: char })
     }
+    sessionStorage.setItem('user', JSON.stringify(char))
+  }
+
+  const handleRandomChar = () => {
+    const vs = chars.filter(
+      (char) =>
+        parseFloat(char.ki) > 0 &&
+        char.affiliation !== 'Z Fighter' &&
+        char.race !== 'Human' &&
+        char
+    )
+    const random = Math.floor(Math.random() * vs.length)
+    dispatch({ type: 'NEW_MACHINE_CHAR', payload: vs[random] })
+    sessionStorage.setItem('randomChar', JSON.stringify(vs[random]))
   }
 
   return (
     <div className='container-Chars-game'>
       <div>
-        <h4>Selecciona tu personaje</h4>
+        <h4>Guerreros Z</h4>
       </div>
       <div>
         <div className='contain-cards'>
           {chars.map(
             (char) =>
-              parseFloat(char.ki) > 0 && (
+              parseFloat(char.ki) > 0 &&
+              char.affiliation === 'Z Fighter' && (
                 <div
                   key={char.id}
                   className='container-card-game'
@@ -52,7 +68,9 @@ const InitGame = () => {
             <p>{user.name}</p>
             <p>¿Iniciamos?</p>
             <div>
-              <button onClick={handleSelectRandomChar}>A luchar</button>
+              <button onClick={handleRandomChar}>
+                <Link to={`./start`}>A luchar</Link>
+              </button>
             </div>
           </div>
         </div>

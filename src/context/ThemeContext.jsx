@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }) => {
   }, [state.theme, dispatch])
 
   useEffect(() => {
-    localStorage.setItem('theme', state.theme)
+    sessionStorage.setItem('theme', state.theme)
   }, [state.theme])
 
   return (
