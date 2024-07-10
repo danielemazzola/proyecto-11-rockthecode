@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: justify;
 }
 .container > div > div {
   max-width: 450px;
@@ -78,6 +79,22 @@
 
 .banner-battle-chars img:hover {
   transform: scale(1.05);
+}
+
+.contain-play-game {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contain-play-game > a {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(45, 84, 192, 0.808);
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 @media (max-width: 940px) {

@@ -35,7 +35,8 @@
   transform: scale(1.05);
 }
 
-.button > a {
+.button > a,
+.button > p {
   position: absolute;
   top: 0;
   right: 0;
@@ -51,7 +52,8 @@
   transition: all 0.3s;
   animation: scaleAnimation 3s infinite;
 }
-.button > a:hover {
+.button > a:hover,
+.button > p:hover {
   background: radial-gradient(
     circle,
     rgba(255, 0, 0, 1) 0%,
@@ -72,14 +74,16 @@
   align-items: center;
   transition: bottom 0.3s ease-in-out;
 }
-.character-info-container > a > img {
+.character-info-container > a > img,
+.img-game {
   width: 150px;
   height: 150px;
   display: flex;
   object-fit: contain;
   transition: all 0.5s;
 }
-.character-info-container > a > img:hover {
+.character-info-container > a > img:hover,
+.img-game:hover {
   transform: scale(1.9);
 }
 

@@ -11,7 +11,7 @@ export const CharsProvider = ({ children }) => {
   useEffect(() => {
     const fetchCharacters = async () => {
       dispatch({ type: 'LOADING_TRUE' })
-      const limit = 150 //RETURN CHARACTERES
+      const limit = 58 //RETURN CHARACTERES
       try {
         const data = await getCharacters(limit)
         return dispatch({ type: 'SET_CHARS', payload: data.items })

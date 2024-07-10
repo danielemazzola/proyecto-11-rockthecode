@@ -20,8 +20,12 @@ export const GameProvider = ({ children }) => {
   const randomChars = useCallback((chars) => {
     const index1 = Math.floor(Math.random() * chars.length)
     const index2 = Math.floor(Math.random() * chars.length)
-    console.log(index1)
-    console.log(index2)
+    if (index1 === index2) {
+      index2 - 1
+      if (index2 < 0) {
+        index2 + 2
+      }
+    }
     const bannerLeft = chars[index1]
     const bannerRight = chars[index2]
     return { bannerLeft, bannerRight }

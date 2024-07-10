@@ -1,8 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import './Game.css'
 import { GameContext } from '../../context/GameContext'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Game = () => {
+  const navigate = useNavigate()
   const { selectedChars } = useContext(GameContext)
 
   const { bannerLeft, bannerRight } = selectedChars
@@ -13,8 +15,9 @@ const Game = () => {
         <img src={bannerLeft?.image} />
       </div>
       <div>
-        <div>
+        <div className='contain-play-game'>
           <h3 className='title'>Torneo de las Artes Marciales</h3>
+          <Link to='./battle'>¡A luchar!</Link>
           <p className='description'>
             Un juego de preguntas y respuestas basado en Dragon Ball, donde
             seleccionas a tu personaje favorito y compites contra otro personaje

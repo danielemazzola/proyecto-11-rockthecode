@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import Biography from './pages/biography/Biography'
 import NotFound from './pages/not-found/NotFound'
 import Game from './pages/game/Game'
+import InitGame from './pages/game/InitGame'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route index='/home' element={<Home />} />
         <Route path='/biography/:character' element={<Biography />} />
         <Route path='/game' element={<Game />} />
+        <Route path='/game/battle' element={<InitGame />} />
         <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
