@@ -3,13 +3,16 @@ import {
   useState,
   useEffect,
   useContext,
-  useCallback
+  useCallback,
+  useReducer
 } from 'react'
 import { CharsContext } from './CharsContext'
+import { initStateGame, stateGame } from '../reducer/game'
 
 export const GameContext = createContext()
 
 export const GameProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(stateGame, initStateGame)
   const {
     state: { chars }
   } = useContext(CharsContext)
@@ -34,10 +37,15 @@ export const GameProvider = ({ children }) => {
     setSelectedChars(randomChars(chars))
   }, [chars])
 
+  const handleSelectRandomChar = () => {}
+
   return (
     <GameContext.Provider
       value={{
-        selectedChars
+        state,
+        dispatch,
+        selectedChars,
+        handleSelectRandomChar
       }}
     >
       {children}

@@ -12,6 +12,7 @@
 }
 .container-card-game {
   position: relative;
+  cursor: pointer;
 }
 .selected-char-game {
   position: absolute;
@@ -34,6 +35,9 @@
   align-items: center;
   padding: 20px;
   gap: 10px;
+}
+.init-btn-battle > div > img {
+  width: 20px;
 }
 .init-btn-battle > div > div {
   display: flex;
