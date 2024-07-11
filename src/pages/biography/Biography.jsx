@@ -1,44 +1,44 @@
-import React, { useEffect, useMemo, useState, useContext } from 'react'
+import React, { useEffect, useMemo, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getCharacter } from '../../services/api'
 import Loader from '../../components/loader/Loader'
 import Character from '../../components/character/Character'
 import { CharsContext } from '../../context/CharsContext'
+import useFetch from '../../hook/useFetch'
 
 const Biography = () => {
   const path = useLocation()
+  const id = useMemo(() => path.pathname.split('/')[2], [path.pathname])
+  const url = getCharacter(id)
+
   const {
-    state: { loading, char },
+    state: { char },
     dispatch
   } = useContext(CharsContext)
-  const id = path.pathname.split('/')[2]
+
+  const {
+    data,
+    loadingState: { loading, error }
+  } = useFetch(url)
 
   useEffect(() => {
-    const fetchCharacter = async () => {
-      dispatch({ type: 'LOADING_TRUE' })
-      try {
-        const character = await getCharacter(id)
-        return dispatch({ type: 'SET_CHAR', payload: character })
-      } catch (error) {
-        console.error('Error fetching character:', error)
-      } finally {
-        setTimeout(() => {
-          dispatch({ type: 'LOADING_FALSE' })
-        }, 2000)
-        return
-      }
+    if (data) {
+      dispatch({ type: 'SET_CHAR', payload: data })
+    } else if (error) {
+      console.log(error)
     }
-    if (id !== String(char.id)) {
-      fetchCharacter()
-    }
-  }, [id])
+  }, [id, data])
 
-  if (loading) return <Loader />
-  else
-    return (
-      <div>
-        <Character char={char} />
-      </div>
-    )
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <Character char={char} />
+        </div>
+      )}
+    </>
+  )
 }
 export default Biography

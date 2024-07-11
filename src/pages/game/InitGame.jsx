@@ -21,7 +21,7 @@ const InitGame = () => {
     } else {
       dispatch({ type: 'NEW_USER_CHAR', payload: char })
     }
-    sessionStorage.setItem('user', JSON.stringify(char))
+    localStorage.setItem('user', JSON.stringify(char))
   }
 
   const handleRandomChar = () => {
@@ -34,7 +34,7 @@ const InitGame = () => {
     )
     const random = Math.floor(Math.random() * vs.length)
     dispatch({ type: 'NEW_MACHINE_CHAR', payload: vs[random] })
-    sessionStorage.setItem('randomChar', JSON.stringify(vs[random]))
+    localStorage.setItem('randomChar', JSON.stringify(vs[random]))
   }
 
   return (

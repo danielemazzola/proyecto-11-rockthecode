@@ -6,7 +6,8 @@ import './Home.css'
 
 const Home = () => {
   const {
-    state: { loading, chars }
+    loading,
+    state: { chars }
   } = useContext(CharsContext)
 
   return (

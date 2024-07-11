@@ -1,8 +1,8 @@
 export const initThemeState = {
-  theme: sessionStorage.getItem('theme') || 'light'
+  theme: localStorage.getItem('theme') || 'light'
 }
 
-export const stateTheme = (state, action) => {
+export const themeReducer = (state, action) => {
   switch (action.type) {
     case 'THEME_LIGHT':
       return { ...state, theme: 'light' }

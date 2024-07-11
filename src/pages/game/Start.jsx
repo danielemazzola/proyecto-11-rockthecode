@@ -7,9 +7,9 @@ const Start = () => {
   const { user, randomChar } = state
 
   useEffect(() => {
-    const userLocalStorage = JSON.parse(sessionStorage.getItem('user'))
+    const userLocalStorage = JSON.parse(localStorage.getItem('user'))
     const randomCharLocalStorage = JSON.parse(
-      sessionStorage.getItem('randomChar')
+      localStorage.getItem('randomChar')
     )
     if (userLocalStorage && randomCharLocalStorage) {
       dispatch({ type: 'NEW_USER_CHAR', payload: userLocalStorage })

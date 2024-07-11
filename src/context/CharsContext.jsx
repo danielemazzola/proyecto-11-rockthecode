@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useReducer } from 'react'
+import useFetch from '../hook/useFetch'
 import { initCharsState, stateChars } from '../reducer/chars'
 import { getCharacters } from '../services/api'
 
@@ -6,31 +7,23 @@ export const CharsContext = createContext()
 
 export const CharsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(stateChars, initCharsState)
-  const { chars } = state
+  const limit = 58 //RETURN CHARACTERES
+  const url = getCharacters(limit)
+  const {
+    data,
+    loadingState: { error, loading }
+  } = useFetch(url)
 
   useEffect(() => {
-    const fetchCharacters = async () => {
-      dispatch({ type: 'LOADING_TRUE' })
-      const limit = 58 //RETURN CHARACTERES
-      try {
-        const data = await getCharacters(limit)
-        return dispatch({ type: 'SET_CHARS', payload: data.items })
-      } catch (error) {
-        return console.error('Error fetching characters:', error)
-      } finally {
-        setTimeout(() => {
-          dispatch({ type: 'LOADING_FALSE' })
-        }, 2000)
-        return
-      }
+    if (error) {
+      console.log(error)
+    } else if (data) {
+      dispatch({ type: 'SET_CHARS', payload: data.items })
     }
-    if (chars.length === 0) {
-      fetchCharacters()
-    }
-  }, [chars.length])
+  }, [data, dispatch])
 
   return (
-    <CharsContext.Provider value={{ state, dispatch }}>
+    <CharsContext.Provider value={{ state, dispatch, loading }}>
       {children}
     </CharsContext.Provider>
   )

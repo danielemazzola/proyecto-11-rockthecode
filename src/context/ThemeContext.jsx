@@ -1,5 +1,5 @@
 import { createContext, useCallback, useEffect, useReducer } from 'react'
-import { initThemeState, stateTheme } from '../reducer/theme'
+import { initThemeState, themeReducer } from '../reducer/theme'
 
 export const ThemeContext = createContext({
   state: initThemeState,
@@ -7,7 +7,7 @@ export const ThemeContext = createContext({
 })
 
 export const ThemeProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(stateTheme, initThemeState)
+  const [state, dispatch] = useReducer(themeReducer, initThemeState)
 
   const toggleTheme = useCallback(() => {
     dispatch({
@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }) => {
   }, [state.theme, dispatch])
 
   useEffect(() => {
-    sessionStorage.setItem('theme', state.theme)
+    localStorage.setItem('theme', state.theme)
   }, [state.theme])
 
   return (
