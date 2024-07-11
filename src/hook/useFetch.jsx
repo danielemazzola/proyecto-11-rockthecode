@@ -11,6 +11,7 @@ const useFetch = (uri) => {
   useEffect(() => {
     const fetchData = async () => {
       loadingDispatch({ type: 'LOADING_TRUE' })
+      console.log('hola')
       try {
         const response = await fetch(uri)
         if (!response.ok) {
