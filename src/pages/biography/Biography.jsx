@@ -10,24 +10,22 @@ const Biography = () => {
   const path = useLocation()
   const id = useMemo(() => path.pathname.split('/')[2], [path.pathname])
   const url = getCharacter(id)
-
+  const {
+    data,
+    loadingState: { loading, error }
+  } = useFetch(url)
   const {
     state: { char },
     dispatch
   } = useContext(CharsContext)
 
-  const {
-    data,
-    loadingState: { loading, error }
-  } = useFetch(url)
-
   useEffect(() => {
-    if (data) {
-      dispatch({ type: 'SET_CHAR', payload: data })
-    } else if (error) {
+    if (error) {
       console.log(error)
+    } else if (data) {
+      dispatch({ type: 'SET_CHAR', payload: data })
     }
-  }, [id, data])
+  }, [id, data, dispatch])
 
   return (
     <>

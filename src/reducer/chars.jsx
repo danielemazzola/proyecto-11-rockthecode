@@ -1,4 +1,4 @@
-export const initCharsState = { loading: false, chars: [], char: {}, error: '' }
+export const initCharsState = { chars: [], char: {} }
 
 export const stateChars = (state, action) => {
   switch (action.type) {
