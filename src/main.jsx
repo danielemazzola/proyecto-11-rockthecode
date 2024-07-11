@@ -6,10 +6,12 @@ import { BrowserRouter } from 'react-router-dom'
 import { CharsProvider } from './context/CharsContext.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { GameProvider } from './context/GameContext.jsx'
+import ScrollToTop from './helper/ScrollToTop.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <CharsProvider>
         <ThemeProvider>
           <GameProvider>

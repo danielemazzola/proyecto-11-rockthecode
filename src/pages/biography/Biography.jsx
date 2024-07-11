@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getCharacter } from '../../services/api'
 import Loader from '../../components/loader/Loader'
@@ -7,7 +7,7 @@ import { CharsContext } from '../../context/CharsContext'
 
 const Biography = () => {
   const path = useLocation()
-  const id = path.pathname.split('/')[2]
+  const id = useMemo(() => path.pathname.split('/')[2], [path.pathname])
   const url = getCharacter(id)
 
   const {
