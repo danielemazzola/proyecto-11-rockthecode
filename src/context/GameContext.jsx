@@ -37,6 +37,8 @@ export const GameProvider = ({ children }) => {
     setSelectedChars(randomChars(chars))
   }, [chars])
 
+  //INIT GAME
+
   return (
     <GameContext.Provider
       value={{

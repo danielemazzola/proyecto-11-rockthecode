@@ -1,8 +1,8 @@
 export const initStateGame = {
   user: {},
   randomChar: {},
-  score_user: 10,
-  score_machina: 10,
+  score_user: 0,
+  score_machina: 0,
   init: null
 }
 
@@ -18,6 +18,6 @@ export const stateGame = (state, action) => {
     case 'SCORE_MACHINA':
       return { ...state, score_machina: action.payload }
     default:
-      state
+      return state
   }
 }

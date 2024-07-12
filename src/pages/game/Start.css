@@ -5,6 +5,22 @@
   padding: 20px;
 }
 
+.start-container > button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(60, 201, 60, 0.701);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.start-container > a {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(201, 60, 60, 0.701);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
 .characters {
   display: flex;
   align-items: center;
@@ -62,11 +78,58 @@
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .questions h3 {
+  font-size: x-large;
   margin-bottom: 10px;
+}
+
+.contain-question-game {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 5px;
+  align-items: center;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.contain-question-game > p {
+  text-align: center;
+}
+
+.contain-question-game > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.contain-question-game > div > button {
+  padding: 6px 14px;
+  background-color: rgba(31, 151, 206, 0.696);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contain-question-game > div > button:hover {
+  transform: scale(1.1);
 }
 
 /* Animations */
@@ -76,6 +139,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -111,5 +185,9 @@
 
   .questions {
     padding: 10px;
+  }
+  .contain-question-game > div {
+    flex-direction: column;
+    gap: 10px;
   }
 }
