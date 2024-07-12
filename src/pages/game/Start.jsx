@@ -49,7 +49,6 @@ const Start = () => {
             <button onClick={handleRestartGame}>Intentarlo de nuevo</button>
           </>
         )}
-        <Link to='../../../'>Volver al home</Link>
       </div>
     )
   }
